@@ -25,8 +25,8 @@ QPointF RenderArea::compute(float t)
         break;
     case HypoCycloid:
         return compute_hypo(t);
-    case lineCurve:
-        return compute_curve(t);
+    case Line:
+        return compute_line(t);
         break;
     default:
         break;
@@ -60,7 +60,10 @@ void RenderArea::on_shape_changed()
         mIntervalLength = 2 * M_PI;
         mStepCount = 256;
         break;
-    case lineCurve:
+    case Line:
+        mScale = 60;
+        mIntervalLength = 1;  //Dont really matter in the case of line
+        mStepCount = 128;
         break;
     default:
         break;
@@ -74,9 +77,21 @@ QPointF RenderArea::compute_astroid(float t)
     float y  = 2 * sin_t * sin_t * sin_t; // pow(sin_t, 3)
     return QPointF (x,y);
 }
-QPointF RenderArea::compute_curve(float t)
+QPointF RenderArea::compute_line(float t)
 {
-
+    /**
+     * how to add parametric equation for desired shape
+     * x = fx(t)
+     * y = fy(t)
+     * for simple line
+     * x =  1 - t
+     * y =  1 - t
+     *
+     */
+    return QPointF(
+        (1 - t), // X
+        (1 - t)// Y
+    );
 }
 QPointF RenderArea::compute_cycloid(float t)
 {
