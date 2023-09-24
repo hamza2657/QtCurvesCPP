@@ -35,7 +35,11 @@ QPointF RenderArea::compute(float t)
 }
 QSize RenderArea::minimumSizeHint() const
 {
-    return QSize(100,100);
+    return QSize(400,400);
+}
+QSize RenderArea::sizeHint() const
+{
+    return QSize(400,400);
 }
 void RenderArea::on_shape_changed()
 {
@@ -114,10 +118,7 @@ QPointF RenderArea::compute_hypo(float t)
         1.5 * (2 * sin(t) - sin(2*t)) // Y
     );
 }
-QSize RenderArea::sizeHint() const
-{
-    return QSize(400,200);
-}
+
 void RenderArea::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED (event);

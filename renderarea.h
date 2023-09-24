@@ -19,8 +19,10 @@ public:
         Line
 
     };
-    void setBackgroundColor(QColor color){mBackgroundColor = color;} //setter
+    void setBackgroundColor(QColor color){mBackgroundColor = color;repaint();} //setter
     QColor backgroundColor() const {return mBackgroundColor;} //getter
+    void setSetShapeColor(QColor color){mShapeColor = color;repaint(); }
+    QColor shapeColor() const {return mShapeColor;}
     void setShape(ShapeType shape) {mShape = shape; on_shape_changed();}
     ShapeType shape () const {return mShape;}
     void setScale(float scale) {mScale = scale; repaint();}
