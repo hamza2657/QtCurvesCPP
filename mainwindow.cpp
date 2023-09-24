@@ -94,3 +94,35 @@ void MainWindow::on_btnLineColor_clicked()
     ui->renderArea->setSetShapeColor(color);
 }
 
+
+void MainWindow::on_btnCircle_clicked()
+{
+    this->ui->renderArea->setShape(RenderArea::Circle);
+    this->ui->renderArea->repaint();
+    update_ui();
+}
+
+
+void MainWindow::on_btnEllipse_clicked()
+{
+    this->ui->renderArea->setShape(RenderArea::Ellipse);
+    this->ui->renderArea->repaint();
+    update_ui();
+}
+
+
+void MainWindow::on_btnFancy_clicked()
+{
+    this->ui->renderArea->setShape(RenderArea::FancyCurve);
+    this->ui->renderArea->repaint();
+    update_ui();
+}
+
+
+void MainWindow::on_btnStarfish_clicked()
+{
+    this->ui->renderArea->setShape(RenderArea::Starfish);
+    this->ui->renderArea->repaint();
+    update_ui();
+}
+
