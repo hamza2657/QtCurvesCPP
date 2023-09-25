@@ -23,7 +23,9 @@ public:
         Circle,
         Ellipse,
         FancyCurve,
-        Starfish
+        Starfish,
+        Cloud,
+        InvertedCloud
 
     };
     void setBackgroundColor(QColor color){mBackgroundColor = color;repaint();} //setter
@@ -55,6 +57,9 @@ private:
     QPointF compute_ellipse(float t);
     QPointF compute_fancyCurve(float t);
     QPointF compute_starfish(float t);
+    QPointF compute_cloud(float t);
+    QPointF compute_inverted_cloud(float t);
+    QPointF compute_cloud_with_sign(float t,float sign);
 private:
     QColor mBackgroundColor;
     ShapeType mShape;
